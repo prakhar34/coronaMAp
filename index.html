@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Update a choropleth layer by zoom level</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; }
+	#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+    .legend {
+        background-color: #fff;
+        border-radius: 3px;
+        bottom: 30px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        padding: 10px;
+        position: absolute;
+        right: 10px;
+        z-index: 1;
+    }
+
+    .legend h4 {
+        margin: 0 0 10px;
+    }
+
+    .legend div span {
+        border-radius: 50%;
+        display: inline-block;
+        height: 10px;
+        margin-right: 5px;
+        width: 10px;
+    }
+</style>
+
+<div id="map"></div>
+
+<div id="state-legend" class="legend">
+    <h4>Population</h4>
+    <div><span style="background-color: #ff0000"></span>25,000,000</div>
+    <div><span style="background-color: #130505"></span>10,000,000</div>
+    <div><span style="background-color: #f806a7"></span>7,500,000</div>
+    <div><span style="background-color: #e302f7"></span>5,000,000</div>
+    <div><span style="background-color: #7108fa"></span>2,500,000</div>
+    <div><span style="background-color: #06e8f8"></span>1,000,000</div>
+    <div><span style="background-color: #d9f103"></span>750,000</div>
+    <div><span style="background-color: #1cf309"></span>500,000</div>
+</div>
+
+<div id="county-legend" class="legend" style="display: none;">
+    <h4>Population</h4>
+    <div><span style="background-color: #723122"></span>1,000,000</div>
+    <div><span style="background-color: #8B4225"></span>500,000</div>
+    <div><span style="background-color: #A25626"></span>100,000</div>
+    <div><span style="background-color: #B86B25"></span>50,000</div>
+    <div><span style="background-color: #CA8323"></span>10,000</div>
+    <div><span style="background-color: #DA9C20"></span>5,000</div>
+    <div><span style="background-color: #E6B71E"></span>1,000</div>
+    <div><span style="background-color: #EED322"></span>100</div>
+</div>
+</body>
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoicHJha2hhcjM0IiwiYSI6ImNrYmt5dTg1MjBua2MyeGxjcHByazhnejQifQ.lR4Xgnilb7ETXyf5BnEtlQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/dark-v10',
+        center: [-98, 38.88],
+        minZoom: 3,
+        zoom: 3
+    });
+
+</script>
+
+<script src="app.js"></script>
+
+
+
+</html>
